@@ -16,10 +16,6 @@ cyto(cyto<0) = 0; % do the removing
 figure('name','cyto','NumberTitle', 'off'); imshow(cyto,[])
 
 %% Create mask of cells
-% smooth
-cyto_smooth = imgaussfilt(cyto,2); % maybe don't smooth for the mask
-figure('name','cyto_smooth','NumberTitle', 'off'); imshow(cyto_smooth,[])
-
 % threshold
 cyto_thresh = cyto > .18;
 %cyto_thresh = cyto > graythresh(cyto); % otsu
