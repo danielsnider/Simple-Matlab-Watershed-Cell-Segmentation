@@ -60,7 +60,7 @@ plot(Y,X,'or','markersize',2,'markerfacecolor','r')
 
 %% Watershed
 cyto_smooth = imgaussfilt(cyto,1); % don't smooth too much for watersheding
-cyto_min = imimposemin(-cyto_smooth,seeds); % set locations of seeds to be -Inf (cause matlab watershed)
+cyto_min = imimposemin(max(cyto_smooth(:))-cyto_smooth,seeds); % set locations of seeds to be -Inf (cause matlab watershed)
 %figure('name','cyto_min','NumberTitle', 'off')
 %imshow(cyto_min,[]);
 cyto_ws = watershed(cyto_min);
